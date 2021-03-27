@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<configuration>
+
+    <!-- 读取properties文件 -->
+    <property resource="application.properties"/>
+
+    <!-- 读取数据库配置 -->
+    <property name="db-url" value="${spring.datasource.url}" />
+    <property name="db-username" value="${spring.datasource.username}" />
+    <property name="db-password" value="${spring.datasource.password}" />
+
+    <!-- 自定义属性配置 -->
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n"></property>
+
+
+
+    <!-- 输出日志到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 输出日志到数据库 -->
+    <appender name="database" class="team.flint.flint.log.FlintLogDBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>com.mysql.cj.jdbc.Driver</driverClass>
+            <url>${db-url}</url>
+            <user>${db-username}</user>
+            <password>${db-password}</password>
+        </connectionSource>
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>info</level>-->
+<!--        </filter>-->
+    </appender>
+
+    <!-- 日志记录器-->
+    <root level="error">
+        <appender-ref ref="console" />
+        <appender-ref ref="database" />
+    </root>
+</configuration>
