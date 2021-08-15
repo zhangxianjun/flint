@@ -13,7 +13,10 @@
         <div class="layui-logo">layui 后台布局</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <#list firstList as first>
+                <li class="layui-nav-item"><a href="">${first.name}</a></li>
+            </#list>
+
             <li class="layui-nav-item"><a href="">商品管理</a></li>
             <li class="layui-nav-item"><a href="">用户</a></li>
             <li class="layui-nav-item">
