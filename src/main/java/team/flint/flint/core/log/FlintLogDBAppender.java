@@ -1,4 +1,4 @@
-package team.flint.flint.log;
+package team.flint.flint.core.log;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;

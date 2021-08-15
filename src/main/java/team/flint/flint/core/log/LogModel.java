@@ -1,4 +1,4 @@
-package team.flint.flint.log;
+package team.flint.flint.core.log;
 
 /**
  * Created by IntelliJ IDEA.

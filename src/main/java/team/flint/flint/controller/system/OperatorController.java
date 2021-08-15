@@ -1,4 +1,4 @@
-package team.flint.flint.permission;
+package team.flint.flint.controller.system;
 
 public class OperatorController {
 

@@ -24,7 +24,7 @@
     </appender>
 
     <!-- 输出日志到数据库 -->
-    <appender name="database" class="team.flint.flint.log.FlintLogDBAppender">
+    <appender name="database" class="team.flint.flint.core.log.FlintLogDBAppender">
         <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
             <driverClass>com.mysql.cj.jdbc.Driver</driverClass>
             <url>${db-url}</url>
