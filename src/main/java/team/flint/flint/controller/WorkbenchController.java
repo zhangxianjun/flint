@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import team.flint.flint.core.service.ProgramService;
 import team.flint.flint.model.table.Resource;
 
@@ -18,18 +19,22 @@ public class WorkbenchController {
     private ProgramService programService;
 
     @RequestMapping(value = "/page/workbench")
-    public String getWorkbenchPage(@ModelAttribute("model") ModelMap model) {
+    public ModelAndView getWorkbenchPage(ModelAndView modelAndView) {
 //        Date date = new Date();
 //        Marker marker = MarkerFactory.getMarker("Flint");
 //
 ////        logger.error(marker, "{\"label0\":\"xxxx\"}");
         // 获取一级导航
-        List<Resource> firstList = programService.getResourceList(0);
-        model.addAttribute("firstList", firstList);
+        List<Resource> topList = programService.getResourceList(0);
+        modelAndView.addObject("topList", topList);
         // 获取二级导航
+        List<Resource> leftList = programService.getResourceList(1);
+        modelAndView.addObject("leftList", leftList);
+        // 获取首页
+        modelAndView.addObject("firstPage", leftList.get(0));
 
-
-        return "workbench";
+        modelAndView.setViewName("workbench");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/api/test")

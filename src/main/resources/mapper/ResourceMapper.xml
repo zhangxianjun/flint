@@ -4,7 +4,7 @@
 
 
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
     select 
     *
     from resource
@@ -114,7 +114,7 @@
   <select id="getResourceList" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
     select *
     from resource
-    where root_id = #{rootId,jdbcType=INTEGER}
+    where root_id = #{rootId,jdbcType=INTEGER} order by show_order asc
   </select>
 
 </mapper>
