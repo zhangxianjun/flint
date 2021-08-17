@@ -33,7 +33,7 @@
                 <#list leftList as model>
                     <#if model_index == 0>
                         <li class="layui-nav-item layui-nav-itemed"><a href="javascript:void(0);"
-                                                                       onclick="pushClick(${model.path})">${model.name}</a>
+                                                                       onclick="pushClick('${model.path}')">${model.name}</a>
                         </li>
                     <#else>
                         <li class="layui-nav-item"><a href="${model.path}">${model.name}</a></li>
@@ -48,10 +48,17 @@
     </div>
 </div>
 <script>
-    // iframe
-    function pushClick(url) {
-        $("#content", parent.document.body).attr("src", url);
-    }
+    layui.use(['jquery'],function(){
+            var $ = layui.$
+        var form = layui.form
+            , $ = layui.jquery
+            , layer = layui.layer;
+        window.pushClick =  function (url) {
+            console.log("=============");
+            $("#content", parent.document.body).attr("src", url);
+        }
+    });
+
 </script>
 </body>
 </html>
