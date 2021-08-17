@@ -32,11 +32,13 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <#list leftList as model>
                     <#if model_index == 0>
-                        <li class="layui-nav-item layui-nav-itemed"><a href="javascript:void(0);"
-                                                                       onclick="pushClick(${model.path})">${model.name}</a>
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:void(0);" onclick="pushClick('${model.path}')">${model.name}</a>
                         </li>
                     <#else>
-                        <li class="layui-nav-item"><a href="${model.path}">${model.name}</a></li>
+                        <li class="layui-nav-item">
+                            <a href="javascript:void(0);" onclick="pushClick('${model.path}')">${model.name}</a>
+                        </li>
                     </#if>
                 </#list>
             </ul>
@@ -48,10 +50,18 @@
     </div>
 </div>
 <script>
-    // iframe
-    function pushClick(url) {
-        $("#content", parent.document.body).attr("src", url);
-    }
+    layui.use(['jquery', 'layer'], function(){
+        var $ = layui.$
+        // iframe
+        function pushClick(url) {
+            console.log("====" + url);
+            $("#content", parent.document.body).attr("src", url);
+        }
+        // $('body').append('hello jquery');
+    });
+
+
+
 </script>
 </body>
 </html>
