@@ -44,6 +44,7 @@ public class WorkbenchController {
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
+
         modelAndView.addObject("leftMap", objectMapper.writeValueAsString(leftMap));
         // 获取首页
         List<Resource> leftList = leftMap.get(topIndex+"");

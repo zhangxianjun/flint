@@ -73,10 +73,18 @@
 
             // 清空右侧菜单
             $("left").empty();
-
             // 生成右边菜单
-            let leftMap = JSON.parse("${leftMap}");
+            let leftMap = ${leftMap?no_esc};
             console.log(leftMap);
+            let list = leftMap[0];
+
+            console.log("list" + list.length);
+
+            for (let i = 0; i < list.length; i++) {
+                var map = list[i];
+                console.log(map)
+            }
+
         }
     });
 
