@@ -38,12 +38,12 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test" id="left">
                 <#list leftList as model>
                     <#if model.resourceId == firstPageModel.resourceId>
-                        <li class="layui-nav-item layui-nav-itemed">
-                            <a href="javascript:void(0);" onclick="pushClick('${model.path}')">${model.name}</a>
+                        <li class="layui-nav-item layui-nav-itemed" id="left_${model.resourceId}">
+                            <a href="javascript:void(0);" onclick="pushClick('${model.resourceId}','${model.path}')">${model.name}</a>
                         </li>
                     <#else>
-                        <li class="layui-nav-item">
-                            <a href="javascript:void(0);" onclick="pushClick('${model.path}')">${model.name}</a>
+                        <li class="layui-nav-item" id="left_${model.resourceId}">
+                            <a href="javascript:void(0);" onclick="pushClick('${model.resourceId}','${model.path}')">${model.name}</a>
                         </li>
                     </#if>
                 </#list>
@@ -60,31 +60,45 @@
         let $ = layui.$;
 
         // 切换页面
-        window.pushClick = function (url) {
+        window.pushClick = function (resourceId, url) {
+            // 修改二级导航选中状态
+            $("#left li").removeClass("layui-nav-itemed");
+            $("#left_" + resourceId).addClass("layui-nav-itemed");
             $("#content", parent.document.body).attr("src", url);
         };
 
         // 生成右边菜单
         window.getLeftMenu = function(resourceId) {
-
             // 修改一级导航选中状态
             $("#top li").removeClass("layui-nav-itemed");
             $("#top_" + resourceId).addClass("layui-nav-itemed");
-
             // 清空右侧菜单
-            $("left").empty();
+            $("#left").empty();
             // 生成右边菜单
             let leftMap = ${leftMap?no_esc};
-            console.log(leftMap);
-            let list = leftMap[0];
-
-            console.log("list" + list.length);
-
+            let list = leftMap[resourceId];
+            let url = "";
+            let innerHtml = "";
             for (let i = 0; i < list.length; i++) {
-                var map = list[i];
-                console.log(map)
+                let map = list[i];
+                if (i == 0) {
+                    url = map.path;
+                    innerHtml = innerHtml + "<li class=\"layui-nav-item layui-nav-itemed\"";
+                } else {
+                    innerHtml = innerHtml + "<li class=\"layui-nav-item\"";
+                }
+                let tmp = `id="left_id">
+                            <a href="javascript:void(0);" onclick="pushClick('rResourceId','rPath')">rName</a>
+                        </li>`;
+                // 进行替换替换字符比拼接容易处理
+                innerHtml = innerHtml + tmp.replace("left_id", "left_" + map.resourceId)
+                    .replace("rResourceId", map.resourceId)
+                    .replace("rPath", map.path)
+                    .replace("rName", map.name);
             }
-
+            $("#left").append(innerHtml);
+            // 默认打开页面
+            $("#content", parent.document.body).attr("src", url);
         }
     });
 </script>

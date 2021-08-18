@@ -29,6 +29,8 @@ public class WorkbenchController {
 //        Marker marker = MarkerFactory.getMarker("Flint");
 //
 ////        logger.error(marker, "{\"label0\":\"xxxx\"}");
+
+
         // 获取一级导航
         List<Resource> topList = programService.getResourceList(0);
         Integer topIndex = topList.get(0).getResourceId();
