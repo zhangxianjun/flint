@@ -52,7 +52,7 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <iframe id="content" src="${(firstPageModel.path)!'http://www.baidu.com/'}" style="width: 100%; height: 100%"></iframe>
+        <iframe src="${(firstPageModel.path)!'http://www.baidu.com/'}" frameborder="0" id="content" style="width: 100%; height: 300px; border-radius: 2px;"></iframe>
     </div>
 </div>
 <script>

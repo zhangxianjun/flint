@@ -45,7 +45,7 @@ public class ProgramController {
         ObjectMapper objectMapper = new ObjectMapper();
 
         Map<String, Object> map = new HashMap<>();
-        map.put("code", 1);
+        map.put("code", 0);
         map.put("msg", "成功");
         map.put("data", list);
 
