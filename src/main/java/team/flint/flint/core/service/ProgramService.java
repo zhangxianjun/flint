@@ -1,5 +1,6 @@
 package team.flint.flint.core.service;
 
+import team.flint.flint.model.table.Program;
 import team.flint.flint.model.table.Resource;
 
 import java.util.List;
@@ -13,4 +14,6 @@ import java.util.List;
  */
 public interface ProgramService {
     public List<Resource> getResourceList(Integer rootId);
+
+    public List<Program> getProgramList();
 }

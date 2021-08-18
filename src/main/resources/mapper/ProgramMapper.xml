@@ -222,4 +222,8 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where program_id = #{programId,jdbcType=INTEGER}
   </update>
+
+  <select id="getProgramList" resultType="team.flint.flint.model.table.Program">
+    select * from program
+  </select>
 </mapper>
