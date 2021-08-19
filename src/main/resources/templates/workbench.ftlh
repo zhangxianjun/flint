@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>工作台</title>
-    <link rel="stylesheet" href="/js/layui/layui.css">
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/layui/layui.js"></script>
     <style>
         .layui-body {
@@ -52,7 +52,7 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <iframe src="${(firstPageModel.path)!'http://www.baidu.com/'}" frameborder="0" id="content" style="width: 100%; height: 300px; border-radius: 2px;"></iframe>
+        <iframe src="${(firstPageModel.path)!'http://www.baidu.com/'}" frameborder="0" id="content" style="width: 100%; height: 100%; border-radius: 2px;"></iframe>
     </div>
 </div>
 <script>

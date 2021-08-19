@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>工作台</title>
-    <link rel="stylesheet" href="/js/layui/layui.css">
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/layui/layui.js"></script>
 </head>
 <body class="layui-layout-body" style="padding: 15px;">
-<div style="padding-bottom: 15px">项目列表</div>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+    <legend>项目列表</legend>
+</fieldset>
 
 <div class="layui-btn-group">
-    <button type="button" class="layui-btn">新增项目</button>
+    <button type="button" class="layui-btn" onclick="addProgram()">新增项目</button>
 </div>
 
 <table class="layui-hide" id="test"></table>
@@ -24,8 +26,9 @@
 </script>
 
 <script>
-    layui.use('table', function(){
-        var table = layui.table;
+    layui.use(['table', 'jquery'], function(){
+        let $ = layui.$;
+        let table = layui.table;
         table.render({
             elem: '#test'
             ,url:'/api/program/list'
@@ -58,6 +61,11 @@
                 });
             }
         });
+        
+        // 
+        window.addProgram = function () {
+            window.location.href = "/page/program/add?programId=0";
+        }
     });
 
 </script>

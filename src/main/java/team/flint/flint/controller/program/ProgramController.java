@@ -38,7 +38,7 @@ public class ProgramController {
 
     @RequestMapping(value = "/api/program/list")
     @ResponseBody
-    public String getProgramListData(ModelAndView modelAndView) throws JsonProcessingException {
+    public String getProgramListData() throws JsonProcessingException {
 
         List<Program> list = programService.getProgramList();
 
@@ -48,6 +48,41 @@ public class ProgramController {
         map.put("code", 0);
         map.put("msg", "成功");
         map.put("data", list);
+
+        return objectMapper.writeValueAsString(map);
+    }
+
+    @RequestMapping(value = "/page/program/add")
+    @ResponseBody
+    public ModelAndView getAddProgramPage(ModelAndView modelAndView, Integer programId) {
+
+        if (programId == 0) {
+
+        }
+        modelAndView.setViewName("/program/program_add");
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/api/program/add")
+    @ResponseBody
+    public String addProgramData(String name,
+                                 String code,
+                                 String desc,
+                                 String prototype,
+                                 String source,
+                                 String dev_output,
+                                 String rc_output,
+                                 String pro_output) throws JsonProcessingException {
+
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", 0);
+        map.put("msg", "成功");
+//        map.put("data", list);
 
         return objectMapper.writeValueAsString(map);
     }
