@@ -1,21 +1,19 @@
 package team.flint.flint.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import team.flint.flint.core.service.StaffService;
+import team.flint.flint.core.service.SystemService;
 import team.flint.flint.model.table.Staff;
 
 @Controller
 public class LoginController {
 
     @Autowired
-    public StaffService staffService;
+    public SystemService staffService;
 
     @RequestMapping(value = "/api/login")
     @ResponseBody

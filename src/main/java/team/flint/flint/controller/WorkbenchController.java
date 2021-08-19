@@ -32,7 +32,7 @@ public class WorkbenchController {
 
 
         // 获取一级导航
-        List<Resource> topList = programService.getResourceList(0);
+        List<Resource> topList = programService.getResourceList(1);
         Integer topIndex = topList.get(0).getResourceId();
         modelAndView.addObject("topList", topList);
         modelAndView.addObject("topIndex", topIndex);
