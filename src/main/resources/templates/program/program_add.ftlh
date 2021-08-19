@@ -33,7 +33,7 @@
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">项目是否结束</label>
+        <label class="layui-form-label">是否结束</label>
         <div class="layui-input-block">
             <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
         </div>
