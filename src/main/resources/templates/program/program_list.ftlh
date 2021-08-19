@@ -10,10 +10,8 @@
 <body class="layui-layout-body" style="padding: 15px;">
 <div style="padding-bottom: 15px">项目列表</div>
 
-<div class="site-demo-button" style="margin-bottom: 15px;">
-    <button class="layui-btn site-demo-active" data-type="tabAdd">新增项目</button>
-    <button class="layui-btn site-demo-active" data-type="tabDelete"></button>
-    <button class="layui-btn site-demo-active" data-type="tabChange"></button>
+<div class="layui-btn-group">
+    <button type="button" class="layui-btn">新增项目</button>
 </div>
 
 <table class="layui-hide" id="test"></table>
@@ -61,20 +59,6 @@
             }
         });
     });
-    // layui.use('element', function(){
-    //     let $ = layui.jquery
-    //     let element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
-    //
-    //     //触发事件
-    //     let active = {
-    //         tabAdd: function(){
-    //             window.console.log("======");
-    //         }
-    //     };
-    //
-    //
-    //
-    // });
 
 </script>
 </body>
