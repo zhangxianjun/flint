@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/js/layui/layui.css">
     <script src="/js/layui/layui.js"></script>
 </head>
-<body class="layui-layout-body">
-<div style="padding: 15px;">项目列表</div>
+<body class="layui-layout-body" style="padding: 15px;">
+<div style="padding-bottom: 15px">项目列表</div>
 
 <div class="site-demo-button" style="margin-bottom: 15px;">
     <button class="layui-btn site-demo-active" data-type="tabAdd">新增项目</button>
@@ -21,8 +21,8 @@
 </div>
 
 <script type="text/html" id="operation">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-xs" lay-event="editEvent">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="deleteEvent">删除</a>
 </script>
 
 <script>
@@ -37,19 +37,18 @@
                 ,{field:'name', title: '项目名字'} //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
                 ,{field:'isForbid', title: '进行状态', align: 'center'}
                 ,{field:'createTime', title: '创建时间', align: 'center'}
-                ,{fixed: 'programId', title:'操作', toolbar: '#operation', width:150}
+                ,{fixed: 'right', title:'操作', toolbar: '#operation', width:150}
             ]]
         });
         //监听行工具事件
         table.on('tool(test)', function(obj){
             var data = obj.data;
-            //console.log(obj)
-            if(obj.event === 'del'){
+            if(obj.event === 'deleteEvent'){
                 layer.confirm('真的删除行么', function(index){
                     obj.del();
                     layer.close(index);
                 });
-            } else if(obj.event === 'edit'){
+            } else if(obj.event === 'editEvent'){
                 layer.prompt({
                     formType: 2
                     ,value: data.email
@@ -62,23 +61,20 @@
             }
         });
     });
-
-
-
-    layui.use('element', function(){
-        let $ = layui.jquery
-        let element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
-
-        //触发事件
-        let active = {
-            tabAdd: function(){
-                window.console.log("======");
-            }
-        };
-
-
-
-    });
+    // layui.use('element', function(){
+    //     let $ = layui.jquery
+    //     let element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+    //
+    //     //触发事件
+    //     let active = {
+    //         tabAdd: function(){
+    //             window.console.log("======");
+    //         }
+    //     };
+    //
+    //
+    //
+    // });
 
 </script>
 </body>
