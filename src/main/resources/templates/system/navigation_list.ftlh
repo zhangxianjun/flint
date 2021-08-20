@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/layui/layui.js"></script>
 </head>
-<body class="layui-layout-body" style="padding: 15px;">
+<body class="layui-layout-body  close-footer" style="padding: 15px;">
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
     <legend>导航列表</legend>
 </fieldset>

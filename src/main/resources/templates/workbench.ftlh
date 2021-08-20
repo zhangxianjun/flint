@@ -8,7 +8,7 @@
     <script src="/js/layui/layui.js"></script>
     <style>
         .layui-body {
-            bottom: 0 !important;
+            padding-bottom: 0 !important;
         }
     </style>
 </head>
