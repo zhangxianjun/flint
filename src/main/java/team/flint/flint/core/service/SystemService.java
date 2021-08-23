@@ -29,4 +29,6 @@ public interface SystemService {
     public List<Resource> getResourceList(Integer resourceId);
 
     public Resource getResourceById(Integer resourceId);
+
+    public void editResource();
 }

@@ -77,19 +77,21 @@ public class NavigationController {
 
     @RequestMapping(value = "/api/system/navigation/add")
     @ResponseBody
-    public String addProgramData(String name,
-                                 String code,
-                                 String desc,
-                                 String prototype,
-                                 String source,
-                                 String dev_output,
-                                 String rc_output,
-                                 String pro_output) throws JsonProcessingException {
+    public String addProgramData(Integer resourceId,
+                                 Integer rootId,
+                                 String name,
+                                 String path,
+                                 String showOrder) throws JsonProcessingException {
 
+
+        if (resourceId == 0) {
+            // 新增
+        } else {
+            // 修改
+        }
 
 
         ObjectMapper objectMapper = new ObjectMapper();
-
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
         map.put("msg", "成功");
