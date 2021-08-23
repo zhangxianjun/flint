@@ -55,4 +55,8 @@ public interface ResourceMapper {
 
     List<Resource> getResourceList(Integer rootId);
 
+    List<Resource> getResourceListByRootId(Integer rootId);
+
+    Resource getResourceById(Integer resourceId);
+
 }

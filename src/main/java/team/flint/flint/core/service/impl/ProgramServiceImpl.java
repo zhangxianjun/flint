@@ -28,12 +28,12 @@ public class ProgramServiceImpl implements ProgramService {
     private ProgramMapper programMapper;
 
     @Override
-    public List<Resource> getResourceList(Integer rootId) {
-        return resourceMapper.getResourceList(rootId);
+    public List<Program> getProgramList() {
+        return programMapper.getProgramList();
     }
 
     @Override
-    public List<Program> getProgramList() {
-        return programMapper.getProgramList();
+    public List<Resource> getResourceListByRootId(Integer rootId) {
+        return resourceMapper.getResourceListByRootId(rootId);
     }
 }

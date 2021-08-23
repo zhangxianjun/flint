@@ -16,16 +16,17 @@
     <button type="button" class="layui-btn" onclick="addStaff()">新增导航</button>
 </div>
 
-<table class="layui-hide" id="test"></table>
+<table class="layui-hide" id="test"  lay-filter="test-filter"></table>
 
 </div>
 
 <script type="text/html" id="operation">
     <a class="layui-btn layui-btn-xs" lay-event="editEvent">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="deleteEvent">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="deleteEvent">禁用</a>
 </script>
 
 <script>
+
     layui.use(['table', 'jquery'], function(){
         let $ = layui.$;
         let table = layui.table;
@@ -43,30 +44,24 @@
                 ,{fixed: 'right', title:'操作', toolbar: '#operation', width:150, align: 'center'}
             ]]
         });
+
         //监听行工具事件
-        table.on('tool(test)', function(obj){
+        table.on('tool(test-filter)', function(obj){
             var data = obj.data;
+            window.console.log("====", data);
             if(obj.event === 'deleteEvent'){
-                layer.confirm('真的删除行么', function(index){
-                    obj.del();
+                layer.confirm('禁用', function(index){
+                    // obj.del();
                     layer.close(index);
                 });
             } else if(obj.event === 'editEvent'){
-                layer.prompt({
-                    formType: 2
-                    ,value: data.email
-                }, function(value, index){
-                    obj.update({
-                        email: value
-                    });
-                    layer.close(index);
-                });
+                window.location.href = "/page/system/navigation/add?resourceId=" + data.resourceId;
             }
         });
         
         // 
         window.addStaff = function () {
-            window.location.href = "/page/system/staff/add?staffId=0";
+            window.location.href = "/page/system/navigation/add?resourceId=0";
         }
     });
 

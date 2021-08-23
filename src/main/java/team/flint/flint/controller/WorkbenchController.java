@@ -32,7 +32,7 @@ public class WorkbenchController {
 
 
         // 获取一级导航
-        List<Resource> topList = programService.getResourceList(1);
+        List<Resource> topList = programService.getResourceListByRootId(1);
         Integer topIndex = topList.get(0).getResourceId();
         modelAndView.addObject("topList", topList);
         modelAndView.addObject("topIndex", topIndex);
@@ -41,7 +41,7 @@ public class WorkbenchController {
         Map<String, List<Resource>> leftMap = new HashMap<>();
         for (int i = 0; i < topList.size(); i++) {
             Resource r = topList.get(i);
-            List<Resource> leftList = programService.getResourceList(r.getResourceId());
+            List<Resource> leftList = programService.getResourceListByRootId(r.getResourceId());
             leftMap.put(r.getResourceId() + "", leftList);
         }
 
@@ -64,7 +64,7 @@ public class WorkbenchController {
     @ResponseBody
     public String getLeftMenu(Integer resourceId) throws JsonProcessingException {
 
-        List<Resource> leftList = programService.getResourceList(resourceId);
+        List<Resource> leftList = programService.getResourceListByRootId(resourceId);
 
         ObjectMapper objectMapper = new ObjectMapper();
 

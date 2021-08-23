@@ -120,4 +120,17 @@
         order by resource_id asc, show_order asc
     </select>
 
+
+    <select id="getResourceListByRootId" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
+        select * from resource
+        where root_id = #{rootId,jdbcType=INTEGER}
+        order by show_order asc
+    </select>
+
+
+    <select id="getResourceById" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
+        select * from resource
+        where resource_id = #{resourceId,jdbcType=INTEGER}
+    </select>
+
 </mapper>

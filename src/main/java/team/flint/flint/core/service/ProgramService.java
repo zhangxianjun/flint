@@ -13,7 +13,8 @@ import java.util.List;
  * Description: .
  */
 public interface ProgramService {
-    public List<Resource> getResourceList(Integer rootId);
+
+    public List<Resource> getResourceListByRootId(Integer rootId);
 
     public List<Program> getProgramList();
 }

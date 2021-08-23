@@ -30,6 +30,11 @@
                 </#if>
             </#list>
         </ul>
+<#--        <ul class="layui-nav layui-layout-right">-->
+<#--            <li class="layui-nav-item">-->
+<#--                <a href="javascript:void(0);" onclick="getLeftMenu('1')">系统设置</a>-->
+<#--            </li>-->
+<#--        </ul>-->
     </div>
 
     <div class="layui-side layui-bg-black">

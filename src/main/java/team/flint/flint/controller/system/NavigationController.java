@@ -30,6 +30,9 @@ public class NavigationController {
     @Autowired
     private SystemService systemService;
 
+    @Autowired
+    private ProgramService programService;
+
     @RequestMapping(value = "/page/system/navigation/list")
     public ModelAndView getProgramListPage(ModelAndView modelAndView) {
 //        modelAndView.addObject("list", programService.getProgramList());
@@ -55,12 +58,19 @@ public class NavigationController {
 
     @RequestMapping(value = "/page/system/navigation/add")
     @ResponseBody
-    public ModelAndView getAddProgramPage(ModelAndView modelAndView, Integer programId) {
+    public ModelAndView getAddProgramPage(ModelAndView modelAndView, Integer resourceId) {
+        modelAndView.addObject("resourceId", resourceId);
+        // 父级ID
+        modelAndView.addObject("rootList", programService.getResourceListByRootId(1));
 
-        if (programId == 0) {
+        Resource resource = new Resource();
 
+        if (resourceId > 0) {
+            resource = systemService.getResourceById(resourceId);
         }
-        modelAndView.setViewName("/program/program_add");
+
+        modelAndView.addObject("resource", resource);
+        modelAndView.setViewName("/system/navigation_add");
 
         return modelAndView;
     }
@@ -83,7 +93,6 @@ public class NavigationController {
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
         map.put("msg", "成功");
-//        map.put("data", list);
 
         return objectMapper.writeValueAsString(map);
     }

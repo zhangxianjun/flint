@@ -27,4 +27,6 @@ public interface SystemService {
     public List<Staff> getStaffList();
 
     public List<Resource> getResourceList(Integer resourceId);
+
+    public Resource getResourceById(Integer resourceId);
 }

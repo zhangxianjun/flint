@@ -41,4 +41,8 @@ public class SystemServiceImpl implements SystemService {
         return resourceMapper.getResourceList(resourceId);
     }
 
+    @Override
+    public Resource getResourceById(Integer resourceId) {
+        return resourceMapper.getResourceById(resourceId);
+    }
 }
