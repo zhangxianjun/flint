@@ -45,4 +45,9 @@ public class SystemServiceImpl implements SystemService {
     public Resource getResourceById(Integer resourceId) {
         return resourceMapper.getResourceById(resourceId);
     }
+
+    @Override
+    public void editResource(Integer rootId, String name, String path, Integer showOrder, Integer resourceId) {
+        resourceMapper.updateResource(rootId, name, path, showOrder, resourceId);
+    }
 }

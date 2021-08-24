@@ -81,13 +81,14 @@ public class NavigationController {
                                  Integer rootId,
                                  String name,
                                  String path,
-                                 String showOrder) throws JsonProcessingException {
+                                 Integer showOrder) throws JsonProcessingException {
 
 
         if (resourceId == 0) {
             // 新增
         } else {
             // 修改
+            systemService.editResource(rootId, name, path, showOrder, resourceId);
         }
 
 

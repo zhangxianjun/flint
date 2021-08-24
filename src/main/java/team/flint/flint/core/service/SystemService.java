@@ -30,5 +30,5 @@ public interface SystemService {
 
     public Resource getResourceById(Integer resourceId);
 
-    public void editResource();
+    public void editResource(Integer rootId, String name, String path, Integer showOrder, Integer resourceId);
 }

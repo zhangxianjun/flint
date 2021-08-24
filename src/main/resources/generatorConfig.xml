@@ -23,14 +23,14 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="team.flint.flint.model.table" targetProject="src/main/java/">
-            <property name="enableSubPackages" value="true"/>
-            <property name="trimStrings" value="true"/>
-        </javaModelGenerator>
+<!--        <javaModelGenerator targetPackage="team.flint.flint.model.table" targetProject="src/main/java/">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--            <property name="trimStrings" value="true"/>-->
+<!--        </javaModelGenerator>-->
 
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/">
-            <property name="enableSubPackages" value="true"/>
-        </sqlMapGenerator>
+<!--        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </sqlMapGenerator>-->
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="team.flint.flint.core.mapper" targetProject="src/main/java/">
             <property name="enableSubPackages" value="true"/>

@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team.flint.flint.core.mapper.ResourceMapper">
 
-
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer"
             resultType="team.flint.flint.model.table.Resource">
         select *
@@ -10,13 +9,7 @@
         where resource_id = #{resourceId,jdbcType=INTEGER}
     </select>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete
-        from resource
-        where resource_id = #{resourceId,jdbcType=INTEGER}
-    </delete>
-
-    <insert id="insert" parameterType="team.flint.flint.model.table.Resource">
+    <insert id="insertResource">
         insert into resource (resource_id, root_id, name,
                               path, show_order, create_time,
                               update_time)
@@ -100,7 +93,7 @@
         where resource_id = #{resourceId,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="team.flint.flint.model.table.Resource">
+    <update id="updateResource">
         update resource
         set root_id     = #{rootId,jdbcType=INTEGER},
             name        = #{name,jdbcType=VARCHAR},
@@ -120,13 +113,11 @@
         order by resource_id asc, show_order asc
     </select>
 
-
     <select id="getResourceListByRootId" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
         select * from resource
         where root_id = #{rootId,jdbcType=INTEGER}
         order by show_order asc
     </select>
-
 
     <select id="getResourceById" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
         select * from resource
