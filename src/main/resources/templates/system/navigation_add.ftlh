@@ -23,7 +23,7 @@
         <div class="layui-input-block">
             <select name="rootId" lay-verify="">
                 <#list rootList as m>
-                    <#if m.resourceId == resourceId >
+                    <#if m.resourceId == resource.rootId >
                         <option value="${m.resourceId}" selected="selected">${m.name}</option>
                     <#else>
                         <option value="${m.resourceId}">${m.name}</option>
