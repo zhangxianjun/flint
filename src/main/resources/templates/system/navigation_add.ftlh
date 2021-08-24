@@ -17,6 +17,7 @@
 </fieldset>
 
 <form class="layui-form" action="/api/system/navigation/add">
+    <input hidden="hidden" type="text" name="resourceId" value="${resource.resourceId!0}">
     <div class="layui-form-item">
         <label class="layui-form-label">父级</label>
         <div class="layui-input-block">
@@ -34,7 +35,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">标题</label>
         <div class="layui-input-block">
-            <input type="text" name="title" lay-verify="title" value="${resource.name!}" autocomplete="off"
+            <input type="text" name="name" lay-verify="title" value="${resource.name!}" autocomplete="off"
                    placeholder="请输入标题"
                    class="layui-input">
         </div>

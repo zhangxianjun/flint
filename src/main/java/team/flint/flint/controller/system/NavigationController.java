@@ -61,7 +61,9 @@ public class NavigationController {
     public ModelAndView getAddProgramPage(ModelAndView modelAndView, Integer resourceId) {
         modelAndView.addObject("resourceId", resourceId);
         // 父级ID
-        modelAndView.addObject("rootList", programService.getResourceListByRootId(1));
+        List<Resource> rootList = programService.getResourceListByRootId(1);
+        rootList.add(systemService.getResourceById(1));
+        modelAndView.addObject("rootList", rootList);
 
         Resource resource = new Resource();
 

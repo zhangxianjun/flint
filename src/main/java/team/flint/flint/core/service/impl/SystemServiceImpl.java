@@ -8,6 +8,7 @@ import team.flint.flint.core.service.SystemService;
 import team.flint.flint.model.table.Resource;
 import team.flint.flint.model.table.Staff;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,6 +49,6 @@ public class SystemServiceImpl implements SystemService {
 
     @Override
     public void editResource(Integer rootId, String name, String path, Integer showOrder, Integer resourceId) {
-        resourceMapper.updateResource(rootId, name, path, showOrder, resourceId);
+        resourceMapper.updateResource(rootId, name, path, showOrder, new Date(), resourceId);
     }
 }

@@ -99,7 +99,6 @@
             name        = #{name,jdbcType=VARCHAR},
             path        = #{path,jdbcType=VARCHAR},
             show_order  = #{showOrder,jdbcType=INTEGER},
-            create_time = #{createTime,jdbcType=TIMESTAMP},
             update_time = #{updateTime,jdbcType=TIMESTAMP}
         where resource_id = #{resourceId,jdbcType=INTEGER}
     </update>

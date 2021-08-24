@@ -2,6 +2,7 @@ package team.flint.flint.core.mapper;
 
 import team.flint.flint.model.table.Resource;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ResourceMapper {
@@ -36,5 +37,5 @@ public interface ResourceMapper {
     /**
      * 更新资源
      */
-    void updateResource(Integer rootId, String name, String path, Integer showOrder, Integer resourceId);
+    void updateResource(Integer rootId, String name, String path, Integer showOrder, Date updateTime, Integer resourceId);
 }
