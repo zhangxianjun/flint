@@ -13,7 +13,7 @@
 </fieldset>
 
 <div class="layui-btn-group">
-    <button type="button" class="layui-btn" onclick="addStaff()">新增导航</button>
+    <button type="button" class="layui-btn" onclick="addDocument()">新增文档</button>
 </div>
 
 <table class="layui-hide" id="test"  lay-filter="test-filter"></table>
@@ -60,8 +60,8 @@
         });
         
         // 
-        window.addStaff = function () {
-            window.location.href = "/page/system/navigation/add?resourceId=0";
+        window.addDocument = function () {
+            window.location.href = "/page/document/knowledge/add?documentId=0";
         }
     });
 

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <link rel="stylesheet" href="/js/handsontable/handsontable.full.css">
     <script src="/js/layui/layui.js"></script>
-    <script src="/js/exceljs/exceljs.bare.js"></script>
     <script src="/js/handsontable/handsontable.full.js"></script>
 </head>
 <body class="layui-layout-body" style="padding: 15px;">

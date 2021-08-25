@@ -6,7 +6,6 @@
     <title>工作台</title>
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/layui/layui.js"></script>
-    <script src="/js/exceljs/exceljs.bare.js"></script>
 </head>
 <body class="layui-layout-body" style="padding: 15px;">
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">

@@ -52,12 +52,13 @@ public class KnowledgeController {
 
     @RequestMapping(value = "/page/document/knowledge/add")
     @ResponseBody
-    public ModelAndView getAddProgramPage(ModelAndView modelAndView, Integer programId) {
+    public ModelAndView getAddDocumentPage(ModelAndView modelAndView, Integer documentId) {
 
-        if (programId == 0) {
+        if (documentId == 0) {
 
         }
-        modelAndView.setViewName("/program/program_add");
+        modelAndView.addObject("documentId", documentId);
+        modelAndView.setViewName("/document/knowledge_add");
 
         return modelAndView;
     }
