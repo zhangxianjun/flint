@@ -65,16 +65,7 @@ public class KnowledgeController {
 
     @RequestMapping(value = "/api/document/knowledge/add")
     @ResponseBody
-    public String addProgramData(String name,
-                                 String code,
-                                 String desc,
-                                 String prototype,
-                                 String source,
-                                 String dev_output,
-                                 String rc_output,
-                                 String pro_output) throws JsonProcessingException {
-
-
+    public String addProgramData(Integer documentId, String content) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
 

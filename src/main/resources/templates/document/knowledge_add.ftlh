@@ -10,10 +10,13 @@
 </head>
 <body class="layui-layout-body" style="padding: 15px; height: 100%">
 
-<div style="padding-bottom: 15px" class="layui-btn-container">
+<div>
 
+</div>
+
+<div style="padding-bottom: 15px" class="layui-btn-container">
     <button type="button" class="layui-btn layui-btn-danger" onclick="addDocument()">取消</button>
-    <button type="button" class="layui-btn" onclick="addDocument()">保存</button>
+    <button type="button" class="layui-btn layui-btn-danger" onclick="addDocument()">保存</button>
 </div>
 
 <input hidden="hidden" type="text" name="resourceId" value="${documentId}">
@@ -23,9 +26,11 @@
 </div>
 
 <script>
+    let editor;
+
     require.config({paths: {'vs': '/js/monaco/vs'}});
     require(['vs/editor/editor.main'], function () {
-        var editor = monaco.editor.create(document.getElementById('container'), {
+            editor = monaco.editor.create(document.getElementById('container'), {
             value: [].join('\n'),
             language: 'markdown'
         });
@@ -33,12 +38,11 @@
 
     layui.use(['form', 'jquery'], function () {
         let $ = layui.$;
-        let form = layui.form;
-        //监听提交
-        form.on('submit(formDemo)', function (data) {
+
+        window.addDocument = function () {
             $.ajax({
-                url: '/api/system/navigation/add',
-                data: data,
+                url: '/api/document/knowledge/add',
+                data: {"documentId":"${documentId}","content":editor.getValue()},
                 type: "POST",
                 dataType: "json",
                 success: function (data) {
@@ -51,7 +55,7 @@
                     }
                 }
             });
-        });
+        }
     });
 </script>
 </body>
