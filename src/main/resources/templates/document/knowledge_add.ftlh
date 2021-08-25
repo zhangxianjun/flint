@@ -9,12 +9,7 @@
     <script src="/js/monaco/vs/loader.js"></script>
 </head>
 <body class="layui-layout-body" style="padding: 15px; height: 100%">
-
-<div>
-
-</div>
-
-<div style="padding-bottom: 15px" class="layui-btn-container">
+<div class="layui-btn-container">
     <button type="button" class="layui-btn layui-btn-danger" onclick="addDocument()">取消</button>
     <button type="button" class="layui-btn layui-btn-danger" onclick="addDocument()">保存</button>
 </div>

@@ -8,6 +8,7 @@ import team.flint.flint.core.mapper.ResourceMapper;
 import team.flint.flint.core.service.DocumentService;
 import team.flint.flint.model.table.Document;
 
+import javax.security.auth.login.CredentialNotFoundException;
 import java.util.List;
 
 /**
@@ -27,12 +28,12 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public List<Document> getDocumentList() {
-
+        return null;
     }
 
     @Override
     public Document getDocument(Long documentId) {
-
+        return null;
     }
 
     @Override
