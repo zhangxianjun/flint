@@ -48,14 +48,13 @@
         //监听行工具事件
         table.on('tool(test-filter)', function(obj){
             var data = obj.data;
-            window.console.log("====", data);
             if(obj.event === 'deleteEvent'){
                 layer.confirm('禁用', function(index){
                     // obj.del();
                     layer.close(index);
                 });
             } else if(obj.event === 'editEvent'){
-                window.location.href = "/page/system/navigation/add?resourceId=" + data.resourceId;
+                window.location.href = "/page/document/knowledge/add?documentId=" + data.documentId;
             }
         });
         

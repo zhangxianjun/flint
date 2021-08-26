@@ -8,7 +8,7 @@
     </select>
 
 
-    <select id="selectDocumentById" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Document">
+    <select id="selectDocumentById" resultType="team.flint.flint.model.table.Document">
         select * from document
         where document_id = #{documentId,jdbcType=INTEGER}
     </select>
@@ -95,17 +95,13 @@
         where resource_id = #{resourceId,jdbcType=INTEGER}
     </update>
 
-    <update id="updateResource">
-        update resource
-        set root_id     = #{rootId,jdbcType=INTEGER},
-            name        = #{name,jdbcType=VARCHAR},
-            path        = #{path,jdbcType=VARCHAR},
-            show_order  = #{showOrder,jdbcType=INTEGER},
-            update_time = #{updateTime,jdbcType=TIMESTAMP}
-        where resource_id = #{resourceId,jdbcType=INTEGER}
+    <update id="updateDocument">
+        update document
+        set category        = #{category,jdbcType=VARCHAR},
+            title           = #{title,jdbcType=VARCHAR},
+            content         = #{content,jdbcType=VARCHAR},
+            update_time     = #{updateTime,jdbcType=TIMESTAMP}
+        where document_id = #{documentId,jdbcType=INTEGER}
     </update>
-
-
-
 
 </mapper>

@@ -35,7 +35,7 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public Document getDocument(Integer documentId) {
-        return documentMapper.getDocument(documentId);
+        return documentMapper.selectDocumentById(documentId);
     }
 
     @Override
@@ -43,6 +43,8 @@ public class DocumentServiceImpl implements DocumentService {
         Date now = new Date();
         if (documentId == 0) {
             documentMapper.insertDocument("xx", category, title, staffId, staffName, content, 0, 0, now, now);
+        } else {
+            documentMapper.updateDocument(documentId, category, title, content, now);
         }
     }
 }

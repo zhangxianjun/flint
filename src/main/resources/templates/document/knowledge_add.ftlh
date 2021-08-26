@@ -12,7 +12,12 @@
 </head>
 <body class="layui-layout-body" style="padding: 15px; height: 100%">
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
-    <legend>新建文档</legend>
+    <#if documentId == 0>
+        <legend>新建文档</legend>
+    <#else>
+        <legend>编辑 - ${document.title!''}"</legend>
+    </#if>
+
 </fieldset>
 
 <input hidden="hidden" type="text" name="documentId" value="${documentId}">
@@ -29,10 +34,10 @@
 <div id="alert">
     <div style="margin: 20px; width: 380px">
         <div class="layui-form-item">
-            <input type="text" name="title" placeholder="请输入标题" class="layui-input">
+            <input type="text" name="title" value="${document.title!''}" placeholder="请输入标题" class="layui-input">
         </div>
         <div class="layui-form-item">
-            <input type="text" name="category" placeholder="请输入标签" class="layui-input">
+            <input type="text" name="category" value="${document.category!''}" placeholder="请输入标签" class="layui-input">
         </div>
         <div class="layui-btn-container" style="margin-top:20px;text-align: center">
             <button type="button" class="layui-btn" onclick="saveDocument()">保存</button>
@@ -46,7 +51,7 @@
     require.config({paths: {'vs': '/js/monaco/vs'}});
     require(['vs/editor/editor.main'], function () {
         editor = monaco.editor.create(document.getElementById('container'), {
-            value: [${document.content!""}].join("\n"),
+            value: [`${document.content!""}`].join("\n"),
             language: 'markdown'
         });
     });

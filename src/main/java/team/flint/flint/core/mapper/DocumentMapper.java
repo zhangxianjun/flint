@@ -18,7 +18,7 @@ public interface DocumentMapper {
      * 获取文档
      * @return
      */
-    Document getDocument(Integer documentId);
+    Document selectDocumentById(Integer documentId);
 
     /**
      * 插入文档
@@ -26,6 +26,12 @@ public interface DocumentMapper {
      */
     int insertDocument(String key, String category, String title, Integer staffId, String staffName,
                        String content, Integer top, Integer total, Date createTime, Date updateTime);
+
+    /**
+     * 更新文档
+     * @return
+     */
+    void updateDocument(Integer documentId, String category, String title, String content, Date updateTime);
 
 
 }
