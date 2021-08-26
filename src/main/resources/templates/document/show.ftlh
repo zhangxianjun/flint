@@ -20,16 +20,17 @@
 <script>
 
     layui.use(['jquery'], function(){
-
-        var md = require('markdown-it')();
-        var result = md.renderInline('__markdown-it__ rulezz!');
-
-        <#--//创建实例-->
-        <#--var converter = new showdown.Converter();-->
-        <#--//进行转换-->
-        <#--var html = converter.makeHtml(`${document.content}`);-->
-
-        <#--document.getElementById("container").innerHTML = html;-->
+        let md = window.markdownit({
+            html:         false,
+            xhtmlOut:     false,
+            breaks:       false,
+            langPrefix:   'language-',
+            linkify:      false,
+            typographer:  false,
+            quotes: '“”‘’',
+            highlight: function (/*str, lang*/) { return ''; }
+        });
+        document.getElementById("container").innerHTML = md.render(`${document.content}`);
     });
 </script>
 
