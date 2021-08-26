@@ -39,7 +39,7 @@ public class PlanController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/api/system/navigation/list")
+    @RequestMapping(value = "/api/program/plan/list")
     @ResponseBody
     public String getNavigationListData(Integer resourceId) throws JsonProcessingException {
 
@@ -55,7 +55,7 @@ public class PlanController {
         return objectMapper.writeValueAsString(map);
     }
 
-    @RequestMapping(value = "/page/system/navigation/add")
+    @RequestMapping(value = "/page/program/plan/add")
     @ResponseBody
     public ModelAndView getAddProgramPage(ModelAndView modelAndView, Integer resourceId) {
         modelAndView.addObject("resourceId", resourceId);
@@ -76,7 +76,7 @@ public class PlanController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/api/system/navigation/add")
+    @RequestMapping(value = "/api/program/plan/add")
     @ResponseBody
     public String addProgramData(Integer resourceId,
                                  Integer rootId,
