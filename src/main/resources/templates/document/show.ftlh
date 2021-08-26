@@ -6,7 +6,7 @@
     <title>${document.title!''}</title>
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/layui/layui.js"></script>
-    <script src="/js/showdown/showdown.min.js"></script>
+    <script src="/js/markdown-it/markdown-it.min.js"></script>
     <style>
     </style>
 </head>
@@ -20,12 +20,16 @@
 <script>
 
     layui.use(['jquery'], function(){
-        //创建实例
-        var converter = new showdown.Converter();
-        //进行转换
-        var html = converter.makeHtml(`${document.content}`);
 
-        document.getElementById("container").innerHTML = html;
+        var md = require('markdown-it')();
+        var result = md.renderInline('__markdown-it__ rulezz!');
+
+        <#--//创建实例-->
+        <#--var converter = new showdown.Converter();-->
+        <#--//进行转换-->
+        <#--var html = converter.makeHtml(`${document.content}`);-->
+
+        <#--document.getElementById("container").innerHTML = html;-->
     });
 </script>
 
