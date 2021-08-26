@@ -15,9 +15,9 @@ import java.util.List;
  */
 public interface DocumentService {
 
-    public List<Document> getDocumentList();
+    List<Document> getDocumentList();
 
-    public Document getDocument(Long documentId);
+    Document getDocument(Integer documentId);
 
-    public void editDocument();
+    void editDocument();
 }

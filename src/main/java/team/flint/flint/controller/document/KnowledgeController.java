@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import team.flint.flint.core.service.DocumentService;
 import team.flint.flint.core.service.ProgramService;
+import team.flint.flint.model.table.Document;
 import team.flint.flint.model.table.Program;
 
 import java.util.HashMap;
@@ -26,7 +28,7 @@ import java.util.Map;
 public class KnowledgeController {
 
     @Autowired
-    private ProgramService programService;
+    private DocumentService documentService;
 
     @RequestMapping(value = "/page/document/knowledge/list")
     public ModelAndView getProgramListPage(ModelAndView modelAndView) {
@@ -38,7 +40,7 @@ public class KnowledgeController {
     @ResponseBody
     public String getProgramListData() throws JsonProcessingException {
 
-        List<Program> list = programService.getProgramList();
+        List<Document> list = documentService.getDocumentList();
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -54,9 +56,11 @@ public class KnowledgeController {
     @ResponseBody
     public ModelAndView getAddDocumentPage(ModelAndView modelAndView, Integer documentId) {
 
-        if (documentId == 0) {
-
+        Document document = new Document();
+        if (documentId != 0) {
+            document = documentService.getDocument(documentId);
         }
+        modelAndView.addObject("document", document);
         modelAndView.addObject("documentId", documentId);
         modelAndView.setViewName("/document/knowledge_add");
 

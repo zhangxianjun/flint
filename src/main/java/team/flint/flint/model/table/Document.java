@@ -13,6 +13,11 @@ public class Document {
     private Long documentId;
 
     /**
+     *   唯一key
+     */
+    private String key;
+
+    /**
      *   聚类标签
      */
     private String category;

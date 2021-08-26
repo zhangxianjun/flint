@@ -15,7 +15,7 @@
     <legend>新建文档</legend>
 </fieldset>
 
-<input hidden="hidden" type="text" name="resourceId" value="${documentId}">
+<input hidden="hidden" type="text" name="documentId" value="${documentId}">
 
 <div id="container" style="width: 100%; height: 520px; border: 1px solid #cecece"></div>
 
@@ -40,6 +40,8 @@
         let $ = layui.$;
 
         window.addDocument = function () {
+            // 弹窗
+
             $.ajax({
                 url: '/api/document/knowledge/add',
                 data: {"documentId":"${documentId}","content":editor.getValue()},
@@ -48,7 +50,7 @@
                 success: function (data) {
                     if (data.status == 0) {
                         layer.msg(data.message, {icon: 6, time: 1000}, function () {
-                            window.location.href = "/page/system/navigation/add?resourceId=" + data.resourceId;
+                            window.location.href = "/page/document/knowledge/list";
                         });
                     } else {
                         layer.msg(data.message);

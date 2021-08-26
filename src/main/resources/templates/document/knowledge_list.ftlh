@@ -32,15 +32,15 @@
         let table = layui.table;
         table.render({
             elem: '#test'
-            ,url:'/api/system/navigation/list?resourceId=0'
+            ,url:'/api/document/knowledge/list'
             ,cellMinWidth: 80
             ,cols: [[
-                {field:'resourceId', title: 'ID', width:80}
-                ,{field:'rootId', title: '父级ID', width:80}
-                ,{field:'name', title: '标题'}
-                ,{field:'path', title: '路径'}
-                ,{field:'showOrder', title: '排序', align: 'center', width:80}
+                {field:'documentId', title: 'ID', width:80}
+                ,{field:'title', title: '标题', width:80}
+                ,{field:'staffName', title: '作者'}
+                ,{field:'total', title: '阅读量'}
                 ,{field:'createTime', title: '创建时间', align: 'center'}
+                ,{field:'updateTime', title: '排序', align: 'center', width:80}
                 ,{fixed: 'right', title:'操作', toolbar: '#operation', width:150, align: 'center'}
             ]]
         });

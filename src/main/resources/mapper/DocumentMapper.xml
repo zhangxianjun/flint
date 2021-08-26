@@ -2,20 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team.flint.flint.core.mapper.DocumentMapper">
 
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer"
-            resultType="team.flint.flint.model.table.Resource">
-        select *
-        from resource
-        where resource_id = #{resourceId,jdbcType=INTEGER}
+    <select id="getDocumentList" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Document">
+        select * from document
+        where 1=1 order by top desc, update_time asc
     </select>
 
-    <insert id="insertResource">
-        insert into resource (resource_id, root_id, name,
-                              path, show_order, create_time,
-                              update_time)
-        values (#{resourceId,jdbcType=INTEGER}, #{rootId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
-                #{path,jdbcType=VARCHAR}, #{showOrder,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
-                #{updateTime,jdbcType=TIMESTAMP})
+
+    <select id="selectDocumentById" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Document">
+        select * from document
+        where document_id = #{documentId,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insertDocument">
+        insert into resource (document_id, key, category, title,
+                              staff_id, content, top, total,
+                              create_time, update_time)
+        values (#{documentId,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+                #{staffId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{top,jdbcType=INTEGER}, #{total,jdbcType=INTEGER},
+                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
     </insert>
 
     <insert id="insertSelective" parameterType="team.flint.flint.model.table.Resource">
@@ -103,24 +107,7 @@
         where resource_id = #{resourceId,jdbcType=INTEGER}
     </update>
 
-    <select id="getResourceList" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
-        select * from resource
-        where 1=1
-        <if test="rootId != 0">
-            and root_id = #{rootId,jdbcType=INTEGER}
-        </if>
-        order by resource_id asc, show_order asc
-    </select>
 
-    <select id="getResourceListByRootId" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
-        select * from resource
-        where root_id = #{rootId,jdbcType=INTEGER}
-        order by show_order asc
-    </select>
 
-    <select id="getResourceById" parameterType="java.lang.Integer" resultType="team.flint.flint.model.table.Resource">
-        select * from resource
-        where resource_id = #{resourceId,jdbcType=INTEGER}
-    </select>
 
 </mapper>

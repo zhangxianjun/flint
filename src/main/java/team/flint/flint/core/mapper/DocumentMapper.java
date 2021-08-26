@@ -1,5 +1,6 @@
 package team.flint.flint.core.mapper;
 
+import team.flint.flint.model.table.Document;
 import team.flint.flint.model.table.Resource;
 
 import java.util.Date;
@@ -7,35 +8,24 @@ import java.util.List;
 
 public interface DocumentMapper {
 
-    int insertResource(Integer resource_id, Integer root_id, String name,
-                       String path, Integer show_order);
-
-    int insertSelective(Resource record);
-
-    Resource selectByPrimaryKey(Integer resourceId);
-
-    int updateByPrimaryKeySelective(Resource record);
-
-    int updateByPrimaryKey(Resource record);
-
-    List<Resource> getResourceList(Integer rootId);
-
     /**
-     * 获取同一个父级资源
-     * @param rootId
+     * 获取文档列表
      * @return
      */
-    List<Resource> getResourceListByRootId(Integer rootId);
+    List<Document> getDocumentList();
 
     /**
-     * 获取某一个资源详情
-     * @param resourceId
+     * 获取文档
      * @return
      */
-    Resource getResourceById(Integer resourceId);
+    Document getDocument(Integer documentId);
 
     /**
-     * 更新资源
+     * 插入文档
+     * @return
      */
-    void updateResource(Integer rootId, String name, String path, Integer showOrder, Date updateTime, Integer resourceId);
+    int insertDocument(Integer documentId, String key, String category, String title, Integer staffId,
+                       String content, Integer top, Integer total, Date createTime, Date updateTime);
+
+
 }

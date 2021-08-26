@@ -28,12 +28,12 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public List<Document> getDocumentList() {
-        return null;
+        return documentMapper.getDocumentList();
     }
 
     @Override
-    public Document getDocument(Long documentId) {
-        return null;
+    public Document getDocument(Integer documentId) {
+        return documentMapper.getDocument(documentId);
     }
 
     @Override
