@@ -33,6 +33,11 @@ public class Document {
     private Integer staffId;
 
     /**
+     *   员工名字
+     */
+    private Integer staffName;
+
+    /**
      *   0启用 1禁用
      */
     private String content;

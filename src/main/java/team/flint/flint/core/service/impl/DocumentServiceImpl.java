@@ -9,6 +9,8 @@ import team.flint.flint.core.service.DocumentService;
 import team.flint.flint.model.table.Document;
 
 import javax.security.auth.login.CredentialNotFoundException;
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,7 +39,10 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public void editDocument() {
-
+    public void editDocument(Integer documentId, String title, String category, String content, Integer staffId, String staffName) {
+        Date now = new Date();
+        if (documentId == 0) {
+            documentMapper.insertDocument("xx", category, title, staffId, staffName, content, 0, 0, now, now);
+        }
     }
 }

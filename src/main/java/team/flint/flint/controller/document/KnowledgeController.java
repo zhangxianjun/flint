@@ -69,14 +69,15 @@ public class KnowledgeController {
 
     @RequestMapping(value = "/api/document/knowledge/add")
     @ResponseBody
-    public String addProgramData(Integer documentId, String content) throws JsonProcessingException {
+    public String addProgramData(Integer documentId, String title, String category, String content) throws JsonProcessingException {
+
+        documentService.editDocument(documentId, title, category, content, 1, "zxj");
 
         ObjectMapper objectMapper = new ObjectMapper();
 
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
         map.put("msg", "成功");
-//        map.put("data", list);
 
         return objectMapper.writeValueAsString(map);
     }

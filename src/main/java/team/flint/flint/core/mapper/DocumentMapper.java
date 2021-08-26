@@ -24,7 +24,7 @@ public interface DocumentMapper {
      * 插入文档
      * @return
      */
-    int insertDocument(Integer documentId, String key, String category, String title, Integer staffId,
+    int insertDocument(String key, String category, String title, Integer staffId, String staffName,
                        String content, Integer top, Integer total, Date createTime, Date updateTime);
 
 

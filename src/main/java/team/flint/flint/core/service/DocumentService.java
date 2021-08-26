@@ -19,5 +19,5 @@ public interface DocumentService {
 
     Document getDocument(Integer documentId);
 
-    void editDocument();
+    void editDocument(Integer documentId, String title, String category, String content, Integer staffId, String staffName);
 }

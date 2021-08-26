@@ -21,8 +21,23 @@
 
 <div class="layui-btn-container" style="padding-top: 10px; text-align: right">
     <button type="button" class="layui-btn layui-btn-danger" onclick="addDocument()">取消</button>
-    <button type="button" class="layui-btn layui-btn-danger" style="margin-right: 0px;" onclick="addDocument()">保存</button>
+    <button type="button" class="layui-btn layui-btn-danger" style="margin-right: 0px;" onclick="addDocument()">保存
+    </button>
 </div>
+</div>
+
+<div id="alert">
+    <div style="margin: 20px; width: 380px">
+        <div class="layui-form-item">
+            <input type="text" name="title" placeholder="请输入标题" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <input type="text" name="category" placeholder="请输入标签" class="layui-input">
+        </div>
+        <div class="layui-btn-container" style="margin-top:20px;text-align: center">
+            <button type="button" class="layui-btn" onclick="saveDocument()">保存</button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -30,21 +45,29 @@
 
     require.config({paths: {'vs': '/js/monaco/vs'}});
     require(['vs/editor/editor.main'], function () {
-            editor = monaco.editor.create(document.getElementById('container'), {
-            value: [].join('\n'),
+        editor = monaco.editor.create(document.getElementById('container'), {
+            value: [${document.content!""}].join("\n"),
             language: 'markdown'
         });
     });
 
     layui.use(['form', 'jquery'], function () {
         let $ = layui.$;
-
         window.addDocument = function () {
             // 弹窗
+            layer.open({
+                type: 1,
+                area: ['420px', '240px'], //宽高
+                content: $("#alert")
+            });
+        }
 
+        window.saveDocument = function () {
+            let title = $('input[name="title"]').val();
+            let category = $('input[name="category"]').val();
             $.ajax({
                 url: '/api/document/knowledge/add',
-                data: {"documentId":"${documentId}","content":editor.getValue()},
+                data: {"documentId":"${documentId}","content":editor.getValue(), "title":title, "category":category},
                 type: "POST",
                 dataType: "json",
                 success: function (data) {

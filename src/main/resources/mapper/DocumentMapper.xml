@@ -14,11 +14,9 @@
     </select>
 
     <insert id="insertDocument">
-        insert into resource (document_id, key, category, title,
-                              staff_id, content, top, total,
-                              create_time, update_time)
-        values (#{documentId,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
-                #{staffId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{top,jdbcType=INTEGER}, #{total,jdbcType=INTEGER},
+        insert into document (`key`, category, title, staff_id, staff_name, content, top, total, create_time, update_time)
+        values (#{key,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+                #{staffId,jdbcType=INTEGER}, #{staffName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{top,jdbcType=INTEGER}, #{total,jdbcType=INTEGER},
                 #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
     </insert>
 
