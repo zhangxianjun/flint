@@ -15,7 +15,7 @@
     <#if documentId == 0>
         <legend>新建文档</legend>
     <#else>
-        <legend>编辑 - ${document.title!''}"</legend>
+        <legend>编辑 - ${document.title!''}</legend>
     </#if>
 
 </fieldset>
@@ -25,7 +25,7 @@
 <div id="container" style="width: 100%; height: 520px; border: 1px solid #cecece"></div>
 
 <div class="layui-btn-container" style="padding-top: 10px; text-align: right">
-    <button type="button" class="layui-btn layui-btn-danger" onclick="addDocument()">取消</button>
+    <button type="button" class="layui-btn layui-btn-danger" onclick="cancelDocument()">取消</button>
     <button type="button" class="layui-btn layui-btn-danger" style="margin-right: 0px;" onclick="addDocument()">保存
     </button>
 </div>
@@ -52,7 +52,11 @@
     require(['vs/editor/editor.main'], function () {
         editor = monaco.editor.create(document.getElementById('container'), {
             value: [`${document.content!""}`].join("\n"),
-            language: 'markdown'
+            fontSize: "16px",
+            language: 'markdown',
+            minimap: {
+                enabled: false, // 不要小地图
+            }
         });
     });
 
@@ -67,19 +71,26 @@
             });
         }
 
+        window.cancelDocument = function () {
+            window.location.href = "/page/document/knowledge/list";
+        }
+
         window.saveDocument = function () {
             let title = $('input[name="title"]').val();
             let category = $('input[name="category"]').val();
             $.ajax({
                 url: '/api/document/knowledge/add',
-                data: {"documentId":"${documentId}","content":editor.getValue(), "title":title, "category":category},
+                data: {
+                    "documentId": "${documentId}",
+                    "content": editor.getValue(),
+                    "title": title,
+                    "category": category
+                },
                 type: "POST",
                 dataType: "json",
                 success: function (data) {
-                    if (data.status == 0) {
-                        layer.msg(data.message, {icon: 6, time: 1000}, function () {
-                            window.location.href = "/page/document/knowledge/list";
-                        });
+                    if (data.code == 0) {
+                        window.location.href = "/page/document/knowledge/list";
                     } else {
                         layer.msg(data.message);
                     }

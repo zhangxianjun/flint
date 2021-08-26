@@ -22,7 +22,7 @@
 
 <script type="text/html" id="operation">
     <a class="layui-btn layui-btn-xs" lay-event="editEvent">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="deleteEvent">禁用</a>
+    <a class="layui-btn layui-btn-xs" lay-event="showEvent">查看</a>
 </script>
 
 <script>
@@ -48,11 +48,8 @@
         //监听行工具事件
         table.on('tool(test-filter)', function(obj){
             var data = obj.data;
-            if(obj.event === 'deleteEvent'){
-                layer.confirm('禁用', function(index){
-                    // obj.del();
-                    layer.close(index);
-                });
+            if(obj.event === 'showEvent'){
+                window.open("/page/document/show?documentId="+ data.documentId);
             } else if(obj.event === 'editEvent'){
                 window.location.href = "/page/document/knowledge/add?documentId=" + data.documentId;
             }

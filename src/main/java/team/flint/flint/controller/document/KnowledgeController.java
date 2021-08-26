@@ -81,4 +81,15 @@ public class KnowledgeController {
 
         return objectMapper.writeValueAsString(map);
     }
+
+    @RequestMapping(value = "/page/document/show")
+    @ResponseBody
+    public ModelAndView getShowDocumentPage(ModelAndView modelAndView, Integer documentId) {
+
+        Document document =  documentService.getDocument(documentId);
+        modelAndView.addObject("document", document);
+        modelAndView.setViewName("/document/show");
+
+        return modelAndView;
+    }
 }
