@@ -40,7 +40,7 @@
                 ,{field:'staffName', title: '作者'}
                 ,{field:'total', title: '阅读量'}
                 ,{field:'createTime', title: '创建时间', align: 'center'}
-                ,{field:'updateTime', title: '排序', align: 'center', width:80}
+                ,{field:'updateTime', title: '修改时间', align: 'center'}
                 ,{fixed: 'right', title:'操作', toolbar: '#operation', width:150, align: 'center'}
             ]]
         });

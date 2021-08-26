@@ -35,7 +35,7 @@ public class Document {
     /**
      *   员工名字
      */
-    private Integer staffName;
+    private String staffName;
 
     /**
      *   0启用 1禁用
