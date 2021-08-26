@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>${document.title!''}</title>
-<#--    <link rel="stylesheet" href="/js/layui/css/layui.css">-->
-<#--    <script src="/js/layui/layui.js"></script>-->
     <script src="/js/markdown-it/markdown-it.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #EFEFEF;
+        }
+    </style>
 </head>
-<body style="padding: 15px; height: 100%">
-<#--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">-->
-<#--        <legend>${document.title!''}</legend>-->
-<#--</fieldset>-->
-<div id="container" style="width: 100%; height: 100%"></div>
+<body>
+<div style="margin: 0px 200px; padding: 20px 40px; background-color: white">
+    <div id="container" style="width: 100%; height: 100%;"></div>
+</div>
 </body>
 
 <script>
