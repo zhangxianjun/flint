@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>${document.title!''}</title>
     <script src="/js/markdown-it/markdown-it.min.js"></script>
+    <script src="/js/markdown-it/md-it-enter.js"></script>
     <style>
         body { margin: 0;  background-color: #EFEFEF; }
-        table { border-collapse: collapse; table-layout: fixed; }
-        tr th, tr td { height: 40px; padding: 0 10px; border: 1px solid #EEEEEE; word-break: break-all; word-wrap:break-word;}
+        table { border-collapse: collapse; table-layout: fixed; width: 100%}
+        tr th, tr td { height: 40px; padding: 0 10px; border: 1px solid #EEEEEE;}
 
     </style>
 </head>
@@ -20,17 +21,23 @@
 
 <script>
     window.onload=function(){
-        let md = window.markdownit({
-            html:         false,
-            xhtmlOut:     false,
-            breaks:       false,
-            langPrefix:   'language-',
-            linkify:      false,
-            typographer:  false,
-            quotes: '“”‘’',
-            highlight: function (/*str, lang*/) { return ''; }
-        });
-        document.getElementById("container").innerHTML = md.render(`${document.content}`);
+        document.getElementById("container").innerHTML = window.demo(HTMLDecode(`${document.content}`));
+    }
+
+    function HTMLEncode(html) {
+        var temp = document.createElement("div");
+        (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+        var output = temp.innerHTML;
+        temp = null;
+        return output;
+    }
+
+    function HTMLDecode(text) {
+        var temp = document.createElement("div");
+        temp.innerHTML = text;
+        var output = temp.innerText || temp.textContent;
+        temp = null;
+        return output;
     }
 </script>
 

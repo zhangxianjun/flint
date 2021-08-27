@@ -47,11 +47,18 @@
 
 <script>
     let editor;
+    function HTMLDecode(text) {
+        var temp = document.createElement("div");
+        temp.innerHTML = text;
+        var output = temp.innerText || temp.textContent;
+        temp = null;
+        return output;
+    }
 
     require.config({paths: {'vs': '/js/monaco/vs'}});
     require(['vs/editor/editor.main'], function () {
         editor = monaco.editor.create(document.getElementById('container'), {
-            value: [`${document.content!""}`].join("\n"),
+            value: [HTMLDecode(`${document.content!""}`)].join("\n"),
             fontSize: "16px",
             language: 'markdown',
             minimap: {
