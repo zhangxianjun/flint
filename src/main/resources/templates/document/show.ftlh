@@ -9,12 +9,12 @@
     <style>
         body { margin: 0;  background-color: #EFEFEF; }
         table { border-collapse: collapse; table-layout: fixed; width: 100%}
-        tr th, tr td { height: 40px; padding: 0 10px; border: 1px solid #EEEEEE;}
+        tr th, tr td { height: 40px; padding: 8px 10px; border: 1px solid #EEEEEE;}
 
     </style>
 </head>
 <body>
-<div style="margin: 0px 220px; padding: 20px 60px; background-color: white">
+<div style="margin: 0px 220px; padding: 20px 60px 80px; background-color: white">
     <div id="container" style="width: 100%; height: 100%;"></div>
 </div>
 </body>
